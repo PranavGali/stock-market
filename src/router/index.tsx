@@ -35,6 +35,9 @@ function AdminProtectedRoute({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }
 
+// Use /stock-market as basename when deployed to GitHub Pages
+const basename = import.meta.env.DEV ? '/' : '/stock-market';
+
 export const router = createBrowserRouter([
   {
     path: '/',
@@ -105,4 +108,4 @@ export const router = createBrowserRouter([
     path: '*',
     element: <Navigate to="/" replace />,
   },
-]);
+], { basename });
